@@ -1,0 +1,6 @@
+#add-card{
+    display: grid;
+    gap: 1rem;
+    width: 20rem;
+    padding: 1rem;
+}
