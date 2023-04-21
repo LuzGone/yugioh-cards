@@ -1,6 +1,17 @@
 #add-card{
     display: grid;
     gap: 1rem;
-    width: 20rem;
+    width: 40rem;
     padding: 1rem;
+    grid-template-columns: repeat(3,1fr);
+}
+
+
+.card{
+
+}
+
+.card-image{
+    width: 8rem;
+    height: 10rem;
 }

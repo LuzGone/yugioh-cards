@@ -1,49 +1,78 @@
 <h1>Cartas de Yu-Gi-Oh</h1>
+
 <mat-card id="add-card">
-  <mat-card-title>Adicionar nova Carta</mat-card-title>
-  <mat-form-field class="example-full-width">
+
+  <mat-card-title style="grid-column: 1/4; text-align: center;">Adicionar nova Carta</mat-card-title>
+
+  <mat-form-field style="grid-column: 1/4;" class="example-full-width">
     <mat-label>Nome</mat-label>
-    <input matInput placeholder="Adicione o nome da carta">
+    <input matInput [(ngModel)]="yuCard.nome" placeholder="Adicione o nome da carta">
   </mat-form-field>
+
+
   <mat-form-field class="example-full-width">
     <mat-label>Atributo</mat-label>
-    <input matInput placeholder="Adicione o atributo da carta">
+    <mat-select [(ngModel)]="yuCard.atributo" placeholder="Escolha o atributo da carta">
+      <mat-option *ngFor="let atributo of atributos" [value]="atributo">{{atributo}}</mat-option>
+    </mat-select>
   </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label >Tipo</mat-label>
+    <mat-select [(ngModel)]="yuCard.tipo" placeholder="Escolha o atributo da carta">
+      <mat-option *ngFor="let tipo of tipos" [value]="tipo">{{tipo}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
   <mat-form-field class="example-full-width">
     <mat-label>Quantidade de Estrelas</mat-label>
-    <input matInput placeholder="Adicione a quantidade de estrelas da Carta">
+    <input matInput [(ngModel)]="yuCard.quantidadeEstrelas"  placeholder="Adicione a quantidade de estrelas da Carta">
   </mat-form-field>
-  <mat-form-field class="example-full-width">
+
+
+  <mat-form-field style="grid-column: 1/4;" class="example-full-width">
     <mat-label>URL da Imagem</mat-label>
-    <input matInput placeholder="Adicione o URL da Imagem da Carta">
+    <input matInput [(ngModel)]="yuCard.urlImg"  placeholder="Adicione o URL da Imagem da Carta">
   </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Tipo</mat-label>
-    <input matInput placeholder="Adicione o Tipo da Carta">
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
+
+
+  
+
+
+  <mat-form-field style="grid-column: 1/4;" class="example-full-width">
     <mat-label>Descrição</mat-label>
-    <input matInput placeholder="Adicione a Descrição da Carta">
+    <input matInput [(ngModel)]="yuCard.description"  placeholder="Adicione a Descrição da Carta">
   </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Ataque</mat-label>
-    <input matInput placeholder="Adicione o valor do Ataque da Carta">
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Defesa</mat-label>
-    <input matInput placeholder="Adicione o valor da Defesa da Carta">
-  </mat-form-field>
-  <button mat-button >Adicionar Carta</button>
+
+  <div style="display: grid; grid-column: 1/4; gap: 1rem; grid-template-columns: repeat(2,1fr);">
+    <mat-form-field class="example-full-width">
+      <mat-label>Ataque</mat-label>
+      <input matInput [(ngModel)]="yuCard.ataque"  placeholder="Adicione o valor do Ataque da Carta">
+    </mat-form-field>
+  
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Defesa</mat-label>
+      <input matInput [(ngModel)]="yuCard.defesa"  placeholder="Adicione o valor da Defesa da Carta">
+    </mat-form-field>
+    </div>
+
+  <button mat-button (click)="addCard()" >Adicionar Carta</button>
 </mat-card>
 <hr>
 <div>
   <h2>Coleção de Cartas Yu-Gi-Oh</h2>
-  <mat-card *ngFor="let yuCard of cards">
-    <mat-card-title>{{yuCard.nome}}</mat-card-title>
-    <p>{{yuCard.atributo}}</p>
-    <p>{{yuCard.quantidadeEstrelas}}</p>
-    <img (src)="yuCard.urlImg" alt="">
-    <p>{{yuCard.tipo}}</p>
-    <p>{{yuCard.description}}</p>
-  </mat-card>
+  <div class="card-container" *ngFor="let yuCard of cards">
+    <mat-card class="card">
+      <mat-card-title>{{yuCard.nome}}</mat-card-title>
+      <p>{{yuCard.atributo}}</p>
+      <p>{{yuCard.quantidadeEstrelas}}</p>
+      <img [src]="yuCard.urlImg" class="card-image">
+      <p>{{yuCard.tipo}}</p>
+      <p>{{yuCard.description}}</p>
+    </mat-card>
+    <button mat-icon-button ><mat-icon>edit</mat-icon></button>
+    <button mat-icon-button ><mat-icon>delete</mat-icon></button>
+  </div>
 </div>

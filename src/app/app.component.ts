@@ -10,6 +10,8 @@ export class AppComponent {
   title = 'yugioh-cards';
   yuCard:YuCard;
   cards:YuCard[];
+  tipos:string[]=['Aqua','Demônio','Dragão','Besta','Besta Alada', 'Guerreiro', 'Máquina','Planta','Piro','Rocha','Trovão','Zumbi','Ciberso','Mago','Dinossauro','Fada','Besta-Guerreira','Besta Divina','Inseto','Peixe','Psíquico','Réptil','Serpente Marinha','Wyrm','Deus Criador'];
+  atributos:string[]=['Água','Fogo','Luz','Terra','Trevas','Vento','Divino'];
 
   constructor(){
     this.yuCard = new YuCard();
@@ -37,3 +39,4 @@ export class AppComponent {
 
 
 }
+
