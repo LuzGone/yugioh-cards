@@ -72,7 +72,7 @@
       <p>{{yuCard.tipo}}</p>
       <p>{{yuCard.description}}</p>
     </mat-card>
-    <button mat-icon-button ><mat-icon>edit</mat-icon></button>
-    <button mat-icon-button ><mat-icon>delete</mat-icon></button>
+    <button mat-icon-button (click)="editCard(yuCard.nome)"><mat-icon>edit</mat-icon></button>
+    <button mat-icon-button (click)="deleteCard(yuCard.nome)"><mat-icon>delete</mat-icon></button>
   </div>
 </div>
